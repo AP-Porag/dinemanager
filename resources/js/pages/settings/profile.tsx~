@@ -52,7 +52,7 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
 
                     <form onSubmit={submit} className="space-y-6">
                         <div className="grid gap-2">
-                            <Label htmlFor="name">Name</Label>
+                            <Label htmlFor="name">First Name</Label>
 
                             <Input
                                 id="name"
@@ -65,6 +65,22 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
                             />
 
                             <InputError className="mt-2" message={errors.first_name} />
+                        </div>
+
+                        <div className="grid gap-2">
+                            <Label htmlFor="name">Last Name</Label>
+
+                            <Input
+                                id="name"
+                                className="mt-1 block w-full"
+                                value={data.last_name}
+                                onChange={(e) => setData('first_name', e.target.value)}
+                                required
+                                autoComplete="name"
+                                placeholder="Full name"
+                            />
+
+                            <InputError className="mt-2" message={errors.last_name} />
                         </div>
 
                         <div className="grid gap-2">
