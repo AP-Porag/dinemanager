@@ -58,13 +58,13 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
                                 id="name"
                                 className="mt-1 block w-full"
                                 value={data.first_name}
-                                onChange={(e) => setData('first_name', e.target.value)}
+                                onChange={(e) => setData('name', e.target.value)}
                                 required
                                 autoComplete="name"
                                 placeholder="Full name"
                             />
 
-                            <InputError className="mt-2" message={errors.first_name} />
+                            <InputError className="mt-2" message={errors.name} />
                         </div>
 
                         <div className="grid gap-2">
