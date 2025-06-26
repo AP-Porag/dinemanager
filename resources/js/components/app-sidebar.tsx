@@ -5,15 +5,12 @@ import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, Sid
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
 import {
-    BookOpen,
-    Folder,
     LayoutGrid,
     UserCog,
     SquareStack,
     ListChecks,
-    UserPen,
     NotebookPen,
-    CircleDollarSign
+    CircleDollarSign, Tablet
 } from 'lucide-react';
 import AppLogo from './app-logo';
 
@@ -39,9 +36,9 @@ const mainNavItems: NavItem[] = [
         icon: ListChecks,
     },
     {
-        title: 'Waiters',
-        href: '/waiters',
-        icon: UserPen,
+        title: 'Tables',
+        href: '/tables',
+        icon: Tablet,
     },
     {
         title: 'Orders',

@@ -69,6 +69,7 @@ class UserController extends Controller
             'firstName' => 'required|string|max:255',
             'lastName' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
+            'userType' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -83,6 +84,7 @@ class UserController extends Controller
                 'first_name' => $request->firstName,
                 'last_name' => $request->lastName,
                 'email' => $request->email,
+                'user_type' => $request->userType,
                 'password' => Hash::make('12345678'),
             ]);
 
@@ -123,7 +125,23 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validated = $request->validate([
+            'firstName' => 'required|string|min:3',
+            'lastName' => 'required|string|min:3',
+            'email' => 'required|email',
+            'userType' => 'required|in:admin,waiter',
+            'status' => 'required|in:0,1',
+        ]);
+
+        $user = User::findOrFail($id);
+        $user->first_name = $validated['firstName'];
+        $user->last_name = $validated['lastName'];
+        $user->email = $validated['email'];
+        $user->user_type = $validated['userType'];
+        $user->status = $validated['status'];
+        $user->save();
+
+        return response()->json(['success' => true, 'message' => 'User updated successfully!']);
     }
 
     /**
