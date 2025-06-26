@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@app.com',
             'password' => Hash::make('12345678'),
             'user_type' => 'admin',
+            'status' => true,
         ]);
 
         User::factory()->create([
@@ -30,6 +31,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'waiter@app.com',
             'password' => Hash::make('12345678'),
             'user_type' => 'waiter',
+            'status' => true,
         ]);
     }
 }
